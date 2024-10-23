@@ -160,7 +160,7 @@ app.post('/conversations/:conversationId/messages', async (req: Request, res:Res
 // TODO Implement the logic for this endpoint
 app.delete('/conversations/:conversationId', async (req: Request, res:Response) => {
   const { conversationId } = req.params;
-  await Conversation.delete({ conversationId });
+  await Conversation.remove({ conversationId });
   res.json({ message: "Conversation deleted successfully", answer});
   return;
 });
