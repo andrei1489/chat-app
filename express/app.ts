@@ -176,6 +176,7 @@ app.delete('/conversations/:conversationId', async (req: Request, res:Response) 
   try {
     await connectToDatabase();
     const answer = await Conversation.deleteOne({ conversationId });
+    await Message.deleteMany({ conversationId });
     res.json({ message: "Conversation deleted successfully", answer});
     return;
   } catch (error) {
